@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/seandunn/.vim'
+let g:netrw_dirhist_2='/Users/seandunn/.vim/backup'
+let g:netrw_dirhist_3='/Users/seandunn/.vim/plugged'
+let g:netrw_dirhist_4='/Users/seandunn/.vim'
+let g:netrw_dirhist_5='/Users/seandunn/.vim/undodir'
+let g:netrw_dirhist_6='/Users/seandunn/.vim'
+let g:netrw_dirhist_7='/Users/seandunn/projects/javascript/enigma/test'
+let g:netrw_dirhist_8='/Users/seandunn/projects/javascript/enigma'
+let g:netrw_dirhist_9='/Users/seandunn/projects/javascript/euler/.git'
