@@ -3,15 +3,14 @@ filetype off                  " required
 
 
 " Switching to vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
-Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dhruvasagar/vim-table-mode'
-
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/tabular'
@@ -21,32 +20,34 @@ Plug 'tommcdo/vim-exchange'
 Plug 'kassio/neoterm'
 " Plug 'hkupty/nvimux'
 
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 Plug 'sgur/ctrlp-extensions.vim'
 
 " Plug 'chrisbra/csv.vim'
-Plug 'ledger/vim-ledger'
-Plug 'matchit.zip'
+" Plug 'ledger/vim-ledger'
+" Plug 'matchit.zip'
 
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
+" Plug 'ngmy/vim-rubocop'
 
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'romainl/vim-qf'
+" Plug 'terryma/vim-multiple-cursors'
 
 Plug 'wincent/ferret'
-Plug 'wincent/loupe'
 
 Plug 'wellle/targets.vim'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'Raimondi/delimitMate'
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'tomtom/tlib_vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
@@ -58,37 +59,31 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-endwise'
 
 Plug 'zandrmartin/vim-distill'
-" Plug 'hkupty/timeshift.vim'
+Plug 'hkupty/timeshift.vim'
 
 Plug 'airblade/vim-gitgutter'
-" Plug 'Rykka/colorv.vim'
 
-" Plug 'AlessandroYorba/Sierra'
-" Plug 'raphamorim/lucario'
-Plug 'rakr/vim-two-firewatch'
-" Plug 'seandunn/tender.vim'
 
 Plug 'editorconfig/editorconfig-vim'
-" Plug 'majutsushi/tagbar'"", { 'on': 'TagbarToggle' }
 
 Plug 'majutsushi/tagbar'
+Plug 'craigemery/vim-autotag'
 
-" Plug 'grassdog/tagman.vim'
+Plug 'joshdick/onedark.vim'
+Plug 'KeitaNakamura/neodark.vim'
 
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-Plug 'wannesm/wmgraphviz.vim'
+Plug 'artur-shaik/vim-javacomplete2'
 
-" Plug 'elixir-lang/vim-elixir'
-" Plug 'thinca/vim-ref'
-" Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+Plug 'wannesm/wmgraphviz.vim'
 
 " JavaScript
 Plug 'sbdchd/neoformat'
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-completion-manager'
+" Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'roxma/nvim-completion-manager'
 
 " Better indentation
 " Plug 'gavocanov/vim-js-indent', {
@@ -100,7 +95,7 @@ Plug 'roxma/nvim-completion-manager'
 " \   'for': ['javascript']
 " \ }
 
-Plug 'facebook/vim-flow'
+" Plug 'facebook/vim-flow'
 " Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 " Plug 'carlitux/deoplete-ternjs'
 " Plug 'moll/vim-node'
@@ -270,9 +265,11 @@ endif
 
 function! s:setupWrapping()
   set wm=2
-  set textwidth=72
+  set textwidth=110
 endfunction
 
+  set wm=2
+  set textwidth=110
 " make and python use real tabs
 au FileType make                                     set noexpandtab
 au FileType python                                   set noexpandtab
@@ -302,11 +299,11 @@ if has("gui_running")
   " MacVIM shift+arrow-keys behavior (required in .vimrc)
   let macvim_hig_shift_movement = 1
 
-  set cursorline
+  " set cursorline
   " Move line highlighting with window focus
   autocmd WinEnter * set cursorline
   autocmd WinLeave * set nocursorline
-  set relativenumber
+  " set relativenumber
 
 else
   set termguicolors
@@ -330,20 +327,20 @@ else
     let g:airline_symbols = {}
   endif
 
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
+  " let g:airline_left_sep = ''
+  " let g:airline_left_alt_sep = ''
+  " let g:airline_right_sep = ''
+  " let g:airline_right_alt_sep = ''
   let g:airline_symbols.branch = ''
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 
   " set airline theme
-  let g:airline_theme = 'base16_embers'
-  " colorscheme tender
-  " colorscheme tendercontrast
-  colorscheme sean_tm_twilight
-
+  " let g:airline_theme = 'base16_embers'
+  " colorscheme sean_tm_twilight
+  let g:onedark_terminal_italics = 1
+  colorscheme onedark
+  let g:airline_theme = 'onedark'
 
   " Copy to the system clipboard
   map <leader>c "+y
@@ -353,7 +350,7 @@ else
   let g:vitality_always_assume_iterm=1
 endif
 
-set cursorline
+" set cursorline
 " Move line highlighting with window focus
 autocmd WinEnter * set cursorline
 autocmd WinLeave * set nocursorline
@@ -387,10 +384,10 @@ set directory=~/.vim/backup
 "   autocmd BufWritePre *.js Neoformat 
 " endif
 
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * Neoformat
+" augroup END
 
 
 " Alignment
@@ -410,6 +407,8 @@ set undoreload=100 "maximum number lines to save for undo on a buffer reload
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+set tags +=extjs-tags
+noremap <C-w><C-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " let g:tagbar_type_markdown = {
 "       \ 'ctagstype' : 'markdown',
 "       \ 'kinds' : [
@@ -564,40 +563,44 @@ let g:ctrlp_prompt_mappings = {
       \ 'PrtExit()':            ['<esc>', '<c-c>', '<c-g>'],
       \ }
 
+" ALE
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_sign_column_always = 1
 
-" Neomake
-" autocmd! BufWritePost,BufEnter * Neomake
-autocmd! BufWritePost * Neomake
+" Ensure that rubocop runs with MRI ruby.  See ~/bin/mriRubocop
+let g:ale_ruby_rubocop_executable='mriRubocop'
+let g:ale_ruby_brakeman_excutable='mriBrakeman'
 
-let g:neomake_javascript_enabled_makers = ['eslint']
-" let g:neomake_open_list = 1
-" let g:neomake_javascript_eslint_maker = {
-"     \ 'args': ['--no-color', '--format', 'compact', '--config', '~/.eslintrc.json'],
-"     \ 'errorformat': '%f: line %l\, col %c\, %m'
-"     \ }
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+" let g:ale_set_quickfix = 1
+
+" Ruby
+let g:rubycomplete_rails = 1
 
 " JavaScript...
 " Use Node.js for JavaScript interpretation
-let $JS_CMD='node'
-let g:jsx_ext_required = 0
+" let $JS_CMD='node'
+" let g:jsx_ext_required = 0
 
-function! JscsFix()
-  " Reformat code according to the Jscs airbnb present unless a .jscsrc file
-  " is present.
-  let l:winview = winsaveview()
-  % ! jscs --fix --preset=airbnb
-  call winrestview(l:winview)
-endfunction
-command! JscsFix :call JscsFix()
-au FileType javascript nmap <leader>j :JscsFix<CR>
+" function! JscsFix()
+"   " Reformat code according to the Jscs airbnb present unless a .jscsrc file
+"   " is present.
+"   let l:winview = winsaveview()
+"   % ! jscs --fix --preset=airbnb
+"   call winrestview(l:winview)
+" endfunction
+" command! JscsFix :call JscsFix()
+" au FileType javascript nmap <leader>j :JscsFix<CR>
+"
 
-
-let g:flow#autoclose=1
-au FileType javascript nmap <leader>i :TernType<cr>
-au FileType javascript nmap <leader>d :TernDef<cr>
-au FileType javascript nmap <leader>D :TernDoc<cr>
-au FileType javascript nmap <leader>r :TernRef<cr>
-au FileType javascript nmap <leader>R :TernRename<cr>
+" let g:flow#autoclose=1
+" au FileType javascript nmap <leader>i :TernType<cr>
+" au FileType javascript nmap <leader>d :TernDef<cr>
+" au FileType javascript nmap <leader>D :TernDoc<cr>
+" au FileType javascript nmap <leader>r :TernRef<cr>
+" au FileType javascript nmap <leader>R :TernRename<cr>
 
 " Golang...
 au FileType go nmap <leader>d <Plug>(go-doc)
@@ -614,6 +617,9 @@ let g:go_fmt_command = "goimports"
 
 au FileType go nmap <leader>I :GoImports<cr>
 au FileType go nmap <leader>R :GoRename<cr>
+
+" Java
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Graphviz
 let g:WMGraphviz_dot = '/usr/local/bin/dot'
@@ -676,6 +682,10 @@ nmap <silent> <leader>g :TestVisit<CR>
 " nmap <leader>pmd :call VimuxRunCommand('pandoc -s ' . bufname("%") . ' -o preview.pdf; open preview.pdf')<CR>
 let g:pandoc#modules#disabled=['formatting']
 
+"Ack.vim - Silver Searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Vim-Table-Mode
 " make tables Markdown compatible
@@ -685,25 +695,25 @@ let g:table_mode_corner="|"
 set path+=**
 set suffixesadd+=.js
 
-function! NeomakeESlintChecker()
-  let l:npm_bin = ''
-  let l:eslint = 'eslint'
-
-  if executable('npm-which')
-    let l:eslint = split(system('npm-which eslint'))[0]
-    return 0
-  endif
-
-  if executable('npm')
-    let l:npm_bin = split(system('npm bin'), '\n')[0]
-  endif
-
-  if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
-    let l:eslint = l:npm_bin . '/eslint'
-  endif
-
-  let b:neomake_javascript_eslint_exe = l:eslint
-endfunction
-
-autocmd FileType javascript :call NeomakeESlintChecker()
-
+" function! NeomakeESlintChecker()
+"   let l:npm_bin = ''
+"   let l:eslint = 'eslint'
+"
+"   if executable('npm-which')
+"     let l:eslint = split(system('npm-which eslint'))[0]
+"     return 0
+"   endif
+"
+"   if executable('npm')
+"     let l:npm_bin = split(system('npm bin'), '\n')[0]
+"   endif
+"
+"   if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
+"     let l:eslint = l:npm_bin . '/eslint'
+"   endif
+"
+"   let b:neomake_javascript_eslint_exe = l:eslint
+" endfunction
+"
+" autocmd FileType javascript :call NeomakeESlintChecker()
+"

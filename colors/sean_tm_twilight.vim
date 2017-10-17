@@ -118,3 +118,5 @@ highlight DiffChange cterm=none ctermfg=black ctermbg=DarkGreen gui=none guibg=#
 highlight DiffAdd cterm=none ctermfg=black ctermbg=DarkGreen gui=italic,bold guibg=#003300
 highlight DiffText cterm=none ctermfg=black ctermbg=DarkRed gui=italic,bold guibg=#003300
 highlight DiffDelete cterm=none ctermfg=black ctermbg=DarkRed gui=bold,italic guifg=black guibg=#440000
+
+highlight ColorColumn cterm=none ctermfg=black ctermbg=black gui=none  guibg=black
