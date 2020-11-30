@@ -293,8 +293,8 @@ nmap <leader>,v :tabedit $MYVIMRC<CR>
 nmap <leader>,g :tabedit $MYGVIMRC<CR>
 
 "Directories for swp files
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
+set backupdir=~/.config/nvim/backup
+set directory=~/.config/nvim/backup
 
 " Alignment
 map <Leader>l :Tabularize<space>
